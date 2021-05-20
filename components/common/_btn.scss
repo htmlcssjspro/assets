@@ -1,0 +1,43 @@
+%btn {
+    border-radius: $btn-border-radius;
+    margin: 0 auto;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    user-select: none;
+    background: $btn-bg-color;
+    color: $btn-color;
+    border: 0px solid transparent;
+    padding: 0.5em 1em;
+    box-shadow: $btn-box-shadow;
+
+    &:active {
+        box-shadow: $btn-active-box-shadow;
+    }
+}
+
+%btn_icon {
+    @extend %flex-c;
+    border-radius: $btn-border-radius;
+    margin: 0 auto;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    background: $btn-bg-color;
+    color: $btn-color;
+    border: 0px solid transparent;
+    padding: 0.5em 1em;
+    box-shadow: $btn-box-shadow;
+
+    &:active {
+        box-shadow: $btn-active-box-shadow;
+    }
+}
+
+%btn-box-shadow {
+    box-shadow: $btn-box-shadow;
+}
+
+%btn-focus-box-shadow {
+    box-shadow: $btn-active-box-shadow;
+}

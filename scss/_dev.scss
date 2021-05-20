@@ -1,0 +1,12 @@
+%dev {
+    &_container {
+        @if $DEV {
+            border: 1px solid #ffdddd;
+        }
+    }
+    &_wrapper {
+        @if $DEV {
+            border: 1px solid #ddffdd;
+        }
+    }
+}

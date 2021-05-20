@@ -1,7 +1,7 @@
 {
     "name": "militer/assets",
     "type": "library",
-    "description": "Библиотека css+js для проекта militerProject",
+    "description": "Библиотека scss+js для проекта militerProject",
     "homepage": "https://github.com/htmlcssjspro/assets",
     "keywords": ["militer"],
     "license": "GPL-3.0-or-later",

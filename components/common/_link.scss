@@ -1,0 +1,23 @@
+%link {
+    $link: &;
+
+    & {
+        color: $link-color;
+    }
+
+    &:hover {
+        color: $link-hover-color;
+    }
+
+    &:active {
+        color: $link-active-color;
+    }
+
+    &_inline {
+        color: $primary;
+        display: inline;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,140 @@
+$slider-transition: transform 1s ease !default;
+
+.mslider {
+    &__control {
+        overflow: hidden;
+
+        &-wrapper {
+            position: relative;
+        }
+    }
+
+    &__img-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        transition: $slider-transition;
+    }
+
+    &__dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__dot {
+        display: flex;
+        padding: 1em 0.5em;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 0.25em;
+            background: $secondary;
+        }
+
+        &.active::before {
+            background: $primary;
+        }
+    }
+
+    &__arrow {
+        &_prev,
+        &_next {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30%;
+            background: transparent;
+            border: none;
+        }
+
+        &_prev {
+            left: 0;
+        }
+
+        &_next {
+            right: 0;
+        }
+    }
+
+    &__arrows {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    &__arrow {
+        &-btn_prev,
+        &-btn_next {
+            width: 53px;
+            height: 53px;
+            border-radius: 3px;
+            background: $white;
+            box-shadow: $btn-box-shadow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                position: relative;
+                width: 14px;
+                height: 14px;
+                background: transparent;
+                // background: #eaebed;
+                overflow: hidden;
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 14px;
+                    height: 6px;
+                    top: 50%;
+                    margin-top: -3px;
+                    left: 50%;
+                    margin-left: -7px;
+                    background: $primary;
+                }
+
+                &::before {
+                }
+
+                &::after {
+                }
+            }
+
+            &.active {
+                background: $primary;
+            }
+        }
+
+        &-btn_prev {
+            margin-right: 30px;
+
+            span {
+                &::before {
+                    transform: translateY(-3px) rotate(-45deg);
+                }
+
+                &::after {
+                    transform: translateY(3px) rotate(45deg);
+                }
+            }
+        }
+
+        &-btn_next {
+            span {
+                &::before {
+                    transform: translateY(-3px) rotate(45deg);
+                }
+
+                &::after {
+                    transform: translateY(3px) rotate(-45deg);
+                }
+            }
+        }
+    }
+}

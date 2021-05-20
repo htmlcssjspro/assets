@@ -1,0 +1,35 @@
+@mixin kf-fade-size {
+    @keyframes fade_size_in {
+        0% {
+            display: none;
+            height: 0;
+        }
+
+        1% {
+            display: '';
+            height: 0;
+        }
+
+        100% {
+            display: block;
+            height: 100%;
+        }
+    }
+
+    @keyframes fade_size_out {
+        0% {
+            display: '';
+            height: 100%;
+        }
+
+        99% {
+            display: '';
+            height: 0;
+        }
+
+        100% {
+            display: none;
+            height: 0;
+        }
+    }
+}
