@@ -1,0 +1,23 @@
+{
+    "name": "militer/assets",
+    "type": "library",
+    "description": "Библиотека css+js для проекта militerProject",
+    "homepage": "https://github.com/htmlcssjspro/assets",
+    "keywords": ["militer"],
+    "license": "GPL-3.0-or-later",
+    "authors": [{
+        "name": "Sergei MILITER Tarasov",
+        "email": "militer@htmlcssjs.pro",
+        "homepage": "https://htmlcssjs.pro",
+        "role": "Developer"
+    }],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {}
+    },
+    "autoload-dev": {},
+    "require": {
+        "php": ">=8.0.0"
+    },
+    "require-dev": {}
+}
