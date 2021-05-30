@@ -3,7 +3,6 @@
 import {newFetch, fetchForm} from './Fetch';
 import scrollSmooth from './scroll/scrollSmooth';
 
-
 function clickHandler(data = {}) {
     document.body.addEventListener('focusin', inputHandler, false);
     document.body.addEventListener('input',   inputHandler, false);
@@ -18,12 +17,17 @@ function clickHandler(data = {}) {
             if ($a) {
                 const href = $a.href;
                 // const href = a.getAttribute('href');
+                activeLink($a);
                 history.pushState(href, '', href);
                 newFetch(href);
             }
 
             const $anchor = t.closest('a[href^="#"]');
-            $anchor && scrollSmooth($anchor.hash);
+            // $anchor && scrollSmooth($anchor.hash);
+            if ($anchor) {
+                activeLink($anchor);
+                scrollSmooth($anchor.hash);
+            }
 
             const $tel = t.closest('a[href^=tel]');
             $tel && (window.location = $tel.href);
@@ -50,6 +54,12 @@ function clickHandler(data = {}) {
             $submit && formHandler(event);
         }
     }, false);
+}
+
+function activeLink($a) {
+    const $active = $a.parentElement.querySelector('.active');
+    $active && $active.classList.remove('active');
+    $a.classList.add('active');
 }
 
 function formHandler(event) {
@@ -95,7 +105,7 @@ function inputCheck($input) {
         if (
             $input.value.trim().length
             && (($input.type === 'password' || $input.type === 'text')
-            && ($input.name === 'new-password' || $input.name === 'confirm-new-password'))
+            && ($input.name === 'new_password' || $input.name === 'confirm_new_password'))
             && !passwordRegexp.test($input.value)
         ) {
             error = 'Пароль должен содержать не менее <strong>8</strong> символов: буквы латинского алфавита в обоих регистрах, цифры, специальные символы <strong>! @ # $ % & ? * ( )</strong>';
@@ -103,9 +113,9 @@ function inputCheck($input) {
         }
     };
     const confirmPasswordCheck = () => {
-        if ($input.name === 'confirm-new-password') {
+        if ($input.name === 'confirm_new_password') {
             const confirm = $input.value;
-            const password = $input.closest('form').querySelector('input[name=new-password]').value;
+            const password = $input.closest('form').querySelector('input[name=new_password]').value;
             if (confirm === password) {
                 return false;
             } else {
