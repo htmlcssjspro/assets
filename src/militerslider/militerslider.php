@@ -1,5 +1,4 @@
-<section id="slider"
-         class="slider">
+<section id="slider" class="slider">
     <h2>Слайдер</h2>
     <div class="slider__control">
         <div class="slider__wrapper">
