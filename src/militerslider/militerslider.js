@@ -23,11 +23,11 @@ const activeClass = 'active';
 export default class MiliterSlider
 {
     constructor(options) {
-        this.main           = document.querySelector(`.${options.main}`);
-        this.control        = this.main.querySelector(`.${options.main}__control`);
+        this.main = document.querySelector(`.${options.main}`);
+        this.control = this.main.querySelector(`.${options.main}__control`);
         this.controlWrapper = this.control.querySelector(`.${options.main}__control-wrapper`);
-        this.imgWrapper     = this.control.querySelector(`.${options.main}__img-wrapper`);
-        this.slides         = this.imgWrapper.children;
+        this.imgWrapper = this.control.querySelector(`.${options.main}__img-wrapper`);
+        this.slides = this.imgWrapper.children;
         this.slidesQuantity = this.slides.length;
 
         this.arrowBtns = options.arrowBtns === false ? false : true;
@@ -47,7 +47,7 @@ export default class MiliterSlider
 
         this.touch = {
             start: 0,
-            end  : 0
+            end:   0
         };
 
         this.addMiliterClass();
@@ -67,7 +67,6 @@ export default class MiliterSlider
         }
     }
     sliderControl() {
-
         const $prev = document.createElement('button');
         $prev.classList.add(prevClass);
         const $next = document.createElement('button');
