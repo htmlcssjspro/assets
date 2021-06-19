@@ -6,7 +6,7 @@ import {popupHandler} from './Handler';
 function newFetch(url, args = {}) {
 
     const init = args.init ? args.init : {};
-    init.method = args.init && args.init.method ? args.init.method  : 'POST';
+    init.method = args.init && args.init.method ? args.init.method : 'POST';
     const cb = args.cb ? args.cb : () => {};
 
     fetch(url, init)
@@ -48,10 +48,6 @@ function newFetch(url, args = {}) {
                 }
 
                 const $responseP = $response.querySelector('p');
-                // $responseP.innerHTML =
-                //     response.success ? response.success.message
-                //         : response.error ? response.error.message
-                //             : response.message ? response.message : '';
                 $responseP.innerHTML = response.message;
                 popupHandler($response);
             }
@@ -64,6 +60,7 @@ function newFetch(url, args = {}) {
 
             cb(response);
 
+            response.location && window.location.assign(response.location);
             response.reload && window.location.reload(true);
         })
         .catch(error => console.error(error));
@@ -73,7 +70,7 @@ function fetchForm($form) {
     newFetch($form.action, {
         init: {
             method: $form.method,
-            body  : new FormData($form)
+            body:   new FormData($form)
         },
         cb: response => {
             if (response.success) {

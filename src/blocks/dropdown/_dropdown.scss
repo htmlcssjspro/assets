@@ -1,0 +1,37 @@
+.dropdown {
+    & {
+        margin: 1em 0;
+    }
+    &__toggle {
+        font-size: 1.8rem;
+        font-weight: bolder;
+        display: inline-block;
+        border-bottom: 1px dashed $text-color;
+        cursor: pointer;
+    }
+    &__content {
+        // display: none;
+    }
+}
+
+%dropdown-hov {
+    & {
+        position: relative;
+    }
+    & > span {
+        // font-size: 1.8rem;
+        // font-weight: bolder;
+        display: inline-block;
+        border-bottom: 1px dashed $text-color;
+        cursor: pointer;
+    }
+    & > div {
+        position: absolute;
+        display: none;
+        @extend %box-shadow;
+        background: $white;
+    }
+    &:hover > div {
+        display: block;
+    }
+}

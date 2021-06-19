@@ -5,9 +5,9 @@ import scrollSmooth from './scroll/scrollSmooth';
 
 function clickHandler(data = {}) {
     document.body.addEventListener('focusin', inputHandler, false);
-    document.body.addEventListener('input',   inputHandler, false);
-    document.body.addEventListener('change',  inputHandler, false);
-    document.body.addEventListener('submit',  formHandler,  false);
+    document.body.addEventListener('input', inputHandler, false);
+    document.body.addEventListener('change', inputHandler, false);
+    document.body.addEventListener('submit', formHandler, false);
     document.body.addEventListener('click', event => {
         event.preventDefault();
         const t = event.target;
