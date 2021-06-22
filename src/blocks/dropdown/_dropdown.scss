@@ -1,4 +1,4 @@
-.dropdown {
+%dropdown {
     & {
         margin: 1em 0;
     }
@@ -10,7 +10,7 @@
         cursor: pointer;
     }
     &__content {
-        // display: none;
+        font-size: inherit;
     }
 }
 

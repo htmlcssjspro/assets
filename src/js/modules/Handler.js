@@ -50,11 +50,23 @@ function clickHandler(data = {}) {
                 cb && setTimeout(() => cb(t), 100);
             }
 
+            const $reset = t.closest('button[type=reset]');
+            $reset && $reset.closest('form').reset();
+
             const $submit = t.closest('button[type=submit]');
             $submit && formHandler(event);
         }
+
+        const $toggle = t.closest('.dropdown>.dropdown__toggle');
+        if ($toggle) {
+            const $dropdown = $toggle.closest('.dropdown');
+            const $content = $dropdown.querySelector('.dropdown__content');
+            $content && $content.classList.toggle('dn');
+        }
+
     }, false);
 }
+
 
 function activeLink($a) {
     const $active = $a.parentElement.querySelector('.active');
@@ -167,16 +179,7 @@ function popupHandler(popup) {
     $popup ? handlerWrap($popup) : fetchPopup(popup);
 }
 
-function dropdownHandler() {
-    const dropdownList = document.body.querySelectorAll('.dropdown');
-    dropdownList && dropdownList.forEach($dropdown => {
-        const $toggle = $dropdown.querySelector('.dropdown__toggle');
-        const $content = $dropdown.querySelector('.dropdown__content');
-        $toggle && $toggle.addEventListener('click', () => {
-            $content && $content.classList.toggle('dn');
-        });
-    });
-}
 
 
-export {clickHandler, popupHandler, dropdownHandler};
+
+export {clickHandler, popupHandler};

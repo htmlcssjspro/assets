@@ -166,7 +166,8 @@ input {
     // overflow: visible;
 }
 
-select {
+select,
+option {
     @extend %ist;
     @extend %font;
 }
