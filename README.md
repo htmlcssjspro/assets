@@ -1,2 +1,2 @@
 # assets
-Библиотека css+js для проекта militerProject
+Библиотека компонентов militer/assets
