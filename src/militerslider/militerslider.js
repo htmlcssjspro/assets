@@ -23,37 +23,40 @@ const activeClass = 'active';
 export default class MiliterSlider
 {
     constructor(options) {
-        this.main = document.querySelector(`.${options.main}`);
-        this.control = this.main.querySelector(`.${options.main}__control`);
-        this.controlWrapper = this.control.querySelector(`.${options.main}__control-wrapper`);
-        this.imgWrapper = this.control.querySelector(`.${options.main}__img-wrapper`);
-        this.slides = this.imgWrapper.children;
-        this.slidesQuantity = this.slides.length;
+        const $main = document.body.querySelector(`.${options.main}`);
+        if ($main) {
+            this.main = $main;
+            this.control = this.main.querySelector(`.${options.main}__control`);
+            this.controlWrapper = this.control.querySelector(`.${options.main}__control-wrapper`);
+            this.imgWrapper = this.control.querySelector(`.${options.main}__img-wrapper`);
+            this.slides = this.imgWrapper.children;
+            this.slidesQuantity = this.slides.length;
 
-        this.arrowBtns = options.arrowBtns === false ? false : true;
-        this.prevBtn = options.prevBtn;
-        this.nextBtn = options.nextBtn;
-        this.dots = options.dots === false ? false : true;
-        this.infinity = options.infinity === false ? false : true;
-        this.auto = options.auto === false ? false : true;
-        this.autoInterval = options.autoInterval ? options.autoInterval * 1000 : 5000;
-        this.slidesToShow = options.slidesToShow ? options.slidesToShow : 1;
+            this.arrowBtns = options.arrowBtns === false ? false : true;
+            this.prevBtn = options.prevBtn;
+            this.nextBtn = options.nextBtn;
+            this.dots = options.dots === false ? false : true;
+            this.infinity = options.infinity === false ? false : true;
+            this.auto = options.auto === false ? false : true;
+            this.autoInterval = options.autoInterval ? options.autoInterval * 1000 : 5000;
+            this.slidesToShow = options.slidesToShow ? options.slidesToShow : 1;
 
-        this.positionMin = 0;
-        this.positionMax = this.slidesQuantity - this.slidesToShow;
-        this.position = options.startPosition ? options.startPosition : 0;
-        this.transform = 0;
-        this.step = 100 / this.slidesToShow;
+            this.positionMin = 0;
+            this.positionMax = this.slidesQuantity - this.slidesToShow;
+            this.position = options.startPosition ? options.startPosition : 0;
+            this.transform = 0;
+            this.step = 100 / this.slidesToShow;
 
-        this.touch = {
-            start: 0,
-            end:   0
-        };
+            this.touch = {
+                start: 0,
+                end:   0
+            };
 
-        this.addMiliterClass();
-        this.sliderControl();
-        this.touchInit();
-        this.autoSwipe();
+            this.addMiliterClass();
+            this.sliderControl();
+            this.touchInit();
+            this.autoSwipe();
+        }
     }
 
     addMiliterClass() {

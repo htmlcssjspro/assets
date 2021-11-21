@@ -1,6 +1,6 @@
 'use strict';
 
-import {popupHandler} from './Handler';
+import {popupHandler, inputError} from './Handler';
 
 // function newFetch(url, cb = () => {}) {
 function newFetch(url, args = {}) {
@@ -54,14 +54,15 @@ function newFetch(url, args = {}) {
 
             if(response.content) {
                 document.getElementById('main').innerHTML = response.content;
-                document.querySelector('title').textContent = response.title;
-                document.querySelector('meta[name=description]').content = response.description;
+                document.head.querySelector('title').textContent = response.title;
+                document.head.querySelector('meta[name=description]').content = response.description;
             }
 
             cb(response);
 
             response.location && window.location.assign(response.location);
             response.reload && window.location.reload(true);
+            response.mainReload && newFetch(window.location.href);
         })
         .catch(error => console.error(error));
 }
@@ -76,6 +77,14 @@ function fetchForm($form) {
             if (response.success) {
                 const $popup = $form.closest('.popup');
                 $popup && $popup.classList.add('dn');
+            }
+            if (response.inputError) {
+                const $input = $form.querySelector(`input[name=${response.inputName}]`);
+                if ($input) {
+                    $input.focus();
+                    $input.dataset.validation = 'invalid';
+                    inputError($input, response.inputError);
+                }
             }
         }
     });
