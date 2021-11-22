@@ -1,9 +1,4 @@
-@import 'flex';
-@import 'media';
-@import 'layout/layout';
-@import 'common/common';
-@import '../components/components';
-@import '../blocks/blocks';
-@import 'animations/animations';
-@import 'dev'; //* Стили для разработки
-// @import 'layout/design-grid/design-grid';
+@import 'normalize';
+@import 'font-face';
+
+@import 'index.lib.scss';

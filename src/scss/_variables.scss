@@ -61,8 +61,8 @@ $font-weight-bolder: bolder !default;
 
 //* PROJECT PREFERENCES
 
-// $DEV: true;
-// $DEV: false;
+// $DEV: true !default;
+// $PROD: not $DEV !default;
 
 //* theme colors
 $primary: $blue !default;

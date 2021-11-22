@@ -2,4 +2,8 @@
     max-width: $content-max-width;
     margin: $wrapper-margin;
     padding: $wrapper-padding;
+    @if $DEV {
+        // border: 1px solid #ddffdd;
+        background-color: #a0ffa080;
+    }
 }

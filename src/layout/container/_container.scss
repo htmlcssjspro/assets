@@ -3,4 +3,8 @@
     max-width: $container-max-width;
     margin: $container-margin;
     padding: $container-padding;
+    @if $DEV {
+        // border: 1px solid #ffdddd;
+        background-color: #ffa0a070;
+    }
 }

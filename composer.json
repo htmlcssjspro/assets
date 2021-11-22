@@ -1,7 +1,7 @@
 {
     "name": "militer/assets",
     "type": "library",
-    "description": "Библиотека scss+js для проекта militerProject",
+    "description": "Библиотека компонентов militer/assets",
     "homepage": "https://github.com/htmlcssjspro/assets",
     "keywords": ["militer"],
     "license": "GPL-3.0-or-later",
@@ -19,5 +19,8 @@
     "require": {
         "php": ">=8.0.0"
     },
-    "require-dev": {}
+    "require-dev": {},
+    "scripts": {
+        "test": "php -r \"echo 'Hello, Composer!!!';\""
+    }
 }

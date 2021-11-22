@@ -25,16 +25,28 @@
 %flex-row {
     flex-direction: row;
 }
+%flex-row-reverse {
+    flex-direction: row-reverse;
+}
 
 %flex-column {
     flex-direction: column;
+}
+%flex-column-reverse {
+    flex-direction: column-reverse;
 }
 
 %flex-wrap {
     flex-wrap: wrap;
 }
+%flex-no-wrap {
+    flex-wrap: nowrap;
+}
+%flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
 
-@mixin flex-container($jc: c, $ai: c, $fd: null) {
+@mixin flex-container($jc: c, $ai: c, $fd: r) {
     $flex-map: (
         c: center,
         sa: space-around,
@@ -50,34 +62,27 @@
         cr: column-reverse,
     );
 
-    // @extend %display-flex;
     display: flex;
 
-    //* flex-direction
-    // Correct values: r|row, rr|row-reverse, cl|column, cr|column-reverse;
-    @if $fd != null {
-        @each $key, $value in $flex-map {
-            @if $fd == $key {
-                flex-direction: #{map-get($flex-map, $fd)};
-            } @else if $fd == $value {
-                flex-direction: $value;
-            }
-        }
-    }
-
-    //* justify-content
-    // Correct values: c|center, sa|space-around, sb|space-between, se|space-evenly;
     @each $key, $value in $flex-map {
+        //* flex-direction
+        // Correct values: r|row, rr|row-reverse, cl|column, cr|column-reverse, null
+        @if $fd == $key {
+            flex-direction: #{map-get($flex-map, $fd)};
+        } @else if $fd == $value {
+            flex-direction: $value;
+        }
+
+        //* justify-content
+        // Correct values: c|center, sa|space-around, sb|space-between, se|space-evenly, null
         @if $jc == $key {
             justify-content: #{map-get($flex-map, $jc)};
         } @else if $jc == $value {
             justify-content: $value;
         }
-    }
 
-    //* align-items
-    // Correct values: c|center, fs|flex-start, fe|flex-end, st|strech, bl|baseline;
-    @each $key, $value in $flex-map {
+        //* align-items
+        // Correct values: c|center, fs|flex-start, fe|flex-end, st|strech, bl|baseline, null
         @if $ai == $key {
             align-items: #{map-get($flex-map, $ai)};
         } @else if $ai == $value {
